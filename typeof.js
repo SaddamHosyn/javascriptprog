@@ -1,0 +1,10 @@
+console.log(typeof 0);
+console.log(typeof true);
+console.log(typeof null);
+console.log(typeof undefined);
+console.log(typeof {});
+console.log(typeof Symbol('id'));
+console.log(typeof Math);
+console.log(typeof []);
+console.log(typeof function() {});
+console.log(typeof console.log);
