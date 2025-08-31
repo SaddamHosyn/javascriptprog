@@ -12,5 +12,14 @@ console.log(phrase);
 let name = "meng";
 console.log(`hello, ${1}!`);
 console.log(`hello, ${"name"}!`);
-console.log(`hello, ${name}!`);   
+console.log(`hello, ${name}!`);  
+
+
+const one = "Hello, ";
+const two = "how are you?";
+
+const joined = `${one}${two}`;
+console.log(joined);
+
+
 
