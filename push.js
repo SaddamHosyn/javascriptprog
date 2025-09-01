@@ -21,7 +21,7 @@ console.log(originalShelf); // Output: ["book A", "book B"]
 console.log(newShelf); // Output: ["book A", "book B", "book C"]
 
 
-const arr = [2, 3, 4];
+const arr = [2, , 3, 4];
 
 // push() → adds to the END
 arr.push(5);
