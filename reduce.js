@@ -105,3 +105,74 @@ const f3 = (a) => a * 3;
 const p4 = async (a) => a * 4;
 
 asyncPipe(p1, p2, f3, p4)(10).then(console.log); // 1200
+
+
+
+console.log("=== SPARSE ARRAYS vs UNDEFINED VALUES ===\n");
+
+// Example 1: Sparse array (missing elements)
+console.log("1. Sparse array with missing elements:");
+const sparseArray = [1, 2, , 4]; // Notice the empty spot after 2
+
+console.log("reduce() result:", sparseArray.reduce((a, b) => a + b));
+console.log("Explanation: reduce() SKIPS the missing element\n");
+
+// Example 2: Array with undefined values
+console.log("2. Array with undefined values:");
+const undefinedArray = [1, 2, undefined, 4];
+
+console.log("reduce() result:", undefinedArray.reduce((a, b) => a + b));
+console.log("Explanation: reduce() does NOT skip undefined, tries to add it\n");
+
+// More detailed examples
+console.log("=== MORE EXAMPLES ===\n");
+
+// Example 3: Multiple missing elements
+console.log("3. Multiple missing elements:");
+const multipleSparse = [1, , , 4, , 6];
+console.log("Array:", multipleSparse);
+console.log("reduce() result:", multipleSparse.reduce((a, b) => a + b));
+
+// Example 4: Mixed undefined and missing
+console.log("\n4. Mixed undefined and missing:");
+const mixedArray = [1, , undefined, 4];
+console.log("Array:", mixedArray);
+console.log("reduce() result:", mixedArray.reduce((a, b) => a + b));
+
+// Example 5: Creating sparse arrays different ways
+console.log("\n=== DIFFERENT WAYS TO CREATE SPARSE ARRAYS ===");
+
+// Way 1: Using delete
+console.log("\n5a. Using delete operator:");
+const deleteArray = [1, 2, 3, 4];
+delete deleteArray[1];
+console.log("After delete:", deleteArray);
+console.log("reduce() result:", deleteArray.reduce((a, b) => a + b));
+
+// Way 2: Setting length higher
+console.log("\n5b. Setting length higher:");
+const lengthArray = [1, 2];
+lengthArray.length = 5;
+lengthArray[4] = 3;
+console.log("Array:", lengthArray);
+console.log("reduce() result:", lengthArray.reduce((a, b) => a + b));
+
+// Way 3: Array constructor
+console.log("\n5c. Array constructor:");
+const constructorArray = new Array(3);
+constructorArray[0] = 1;
+constructorArray[2] = 3;
+console.log("Array:", constructorArray);
+console.log("reduce() result:", constructorArray.reduce((a, b) => a + b));
+
+// Bonus: Show what happens with string concatenation
+console.log("\n=== BONUS: STRING CONCATENATION ===");
+console.log("\n6. String concatenation with sparse:");
+const stringsSparse = ["a", , "c"];
+console.log("Array:", stringsSparse);
+console.log("reduce() result:", stringsSparse.reduce((a, b) => a + b));
+
+console.log("\n7. String concatenation with undefined:");
+const stringsUndefined = ["a", undefined, "c"];
+console.log("Array:", stringsUndefined);
+console.log("reduce() result:", stringsUndefined.reduce((a, b) => a + b));
