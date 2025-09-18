@@ -1,3 +1,5 @@
+
+
 const array = [1, 2, 3, 4];
 
 // 0 + 1 + 2 + 3 + 4
@@ -176,3 +178,16 @@ console.log("\n7. String concatenation with undefined:");
 const stringsUndefined = ["a", undefined, "c"];
 console.log("Array:", stringsUndefined);
 console.log("reduce() result:", stringsUndefined.reduce((a, b) => a + b));
+
+
+
+
+const arrayLike = {
+  length: 3,
+  0: 2,
+  1: 3,
+  2: 4,
+  3: 99, // ignored by reduce() since length is 3
+};
+console.log(Array.prototype.reduce.call(arrayLike, (x, y) => x + y));
+// 9
