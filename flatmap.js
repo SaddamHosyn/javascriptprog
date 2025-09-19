@@ -93,3 +93,24 @@ const line = stations
     return [`${name} - ${arr[idx + 1]}`];
   });
 console.log(line); // ['New Haven - West Haven', 'West Haven - Stratford']
+
+
+
+const arrayLike = {
+  length: 3,
+  0: 1,
+  1: 2,
+  2: 3,
+  3: 4, // ignored by flatMap() since length is 3
+};
+console.log(Array.prototype.flatMap.call(arrayLike, (x) => [x, x * 2]));
+// [1, 2, 2, 4, 3, 6]
+
+// Array-like objects returned from the callback won't be flattened
+console.log(
+  Array.prototype.flatMap.call(arrayLike, (x) => ({
+    length: 1,
+    0: x,
+  })),
+);
+// [ { '0': 1, length: 1 }, { '0': 2, length: 1 }, { '0': 3, length: 1 } ]
