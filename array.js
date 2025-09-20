@@ -288,3 +288,44 @@ console.log(arr5[1]);
 console.log(arr5[2]);
 
 
+const colors1 = ["red", "yellow", "blue"];
+colors1[5] = "purple";
+const iterator = colors1.keys();
+for (const key of iterator) {
+  console.log(`${key}: ${colors1[key]}`);
+}
+// Output
+// 0: red
+// 1: yellow
+// 2: blue
+// 3: undefined
+// 4: undefined
+// 5: purple
+
+
+// Array with nested objects
+const original = [{ n: 1 }, { n: 2 }];
+
+// Shallow copy (new outer array, same inner objects)
+const copy = original.slice();        // or [...original]
+
+// Change a nested object through the copy
+copy[0].n = 99;
+
+// Both see the change because the inner object is shared
+console.log(original[0].n); // 99
+console.log(copy[0].n);     // 99
+
+
+// Array with nested objects
+const original1 = [{ n: 1 }, { n: 2 }];
+
+// Shallow copy (new outer array, same inner objects)
+const copy1 =  [...original1];     
+
+// Change a nested object through the copy
+copy1[0].n = 99;
+
+// Both see the change because the inner object is shared
+console.log(original1[0].n); // 99
+console.log(copy1[0].n);     // 99
