@@ -1,5 +1,7 @@
-
-console.log(typeof Symbol("id")) // "symbol"
+"use strict"; // Strict Mode means JavaScript follows stricter rules and catches errors that would normally be ignored. If you're using ES6 modules (import/export) or frameworks like React, you're already in strict mode automatically - no need to add "use strict"; manually!
+ 
+ 
+ console.log(typeof Symbol("id")) // "symbol"
 
 console.log(typeof Math) // "object"  (1)
 
@@ -329,3 +331,71 @@ copy1[0].n = 99;
 // Both see the change because the inner object is shared
 console.log(original1[0].n); // 99
 console.log(copy1[0].n);     // 99
+
+
+
+//This example uses the indexOf() method to find the position (index) of the string "Banana" in the fruits array.
+
+const fruits11 = ["Apple", "Banana"];
+console.log(fruits11.indexOf("Banana"));
+// 1
+
+
+//This example shows two ways to check if the fruits array contains "Banana" and "Cherry": first with the includes() method, and then with the indexOf() method to test for an index value that's not -1. 
+
+const fruits12 = ["Apple", "Banana"];
+
+const bool = fruits12.includes("Banana"); // true
+ const bool1 = fruits12.includes("Cherry"); // false
+
+// If indexOf() doesn't return -1, the array contains the given item.
+const bool2 = fruits12.indexOf("Banana") == -1; // false
+const bool3 = fruits12.indexOf("Cherry") == -1; // true
+
+console.log(bool, bool1, bool2, bool3);
+
+
+const fruits120 = ["Apple", "Banana", "Orange"];
+const removedItem = fruits120.pop();
+console.log(fruits120);
+// ["Apple", "Banana"]
+console.log(removedItem);
+// Orange
+
+
+const fruits100 = ["Apple", "Banana", "Strawberry", "Mango", "Cherry"];
+const start = -3;
+const removedItems = fruits100.splice(start);
+console.log(fruits100);
+// ["Apple", "Banana"]
+console.log(removedItems);
+// ["Strawberry", "Mango", "Cherry"]
+
+
+
+const fruits124 = ["Apple", "Banana", "Orange", "Mango"];
+const removedItem1 = fruits124.shift();
+console.log(fruits124);
+// ["Banana", "Orange", "Mango"]
+console.log(removedItem1);
+// Apple
+
+
+
+const fruits500 = ["Strawberry", "Banana", "Mango"];
+const start100 = fruits500.indexOf("Banana");
+const deleteCount = 2;
+const removedItems120 = fruits500.splice(start100, deleteCount);
+console.log(fruits500);
+// ["Strawberry", "Mango"]
+console.log(removedItems120);
+// ["Banana"]
+
+
+const fruits505 = ["Apple", "Mango", "Cherry"];
+for (const fruit of fruits505) {
+  console.log(fruit);
+}
+// Apple
+// Mango
+// Cherry

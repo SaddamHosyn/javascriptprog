@@ -1,4 +1,6 @@
-const obj1 = { x: 1 };
+
+ 
+ const obj1 = { x: 1 };
 const obj2 = obj1;   // obj2 points to the same object
 
 obj2.x = 7;          // change through obj2
