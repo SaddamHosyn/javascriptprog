@@ -399,3 +399,64 @@ for (const fruit of fruits505) {
 // Apple
 // Mango
 // Cherry
+
+
+console.log("********ANOTHER EXAMPLE*************");
+
+
+const frukost = ["Apple", "Banana", "Strawberry"];
+const moreFrukost = ["Mango", "Cherry"];
+
+const a = frukost.concat(moreFrukost); // this line can be replaced with the line below. both line does the same thing.
+
+const b = [...frukost, ...moreFrukost];
+console.log(a);
+console.log(b);
+
+
+
+
+
+console.log("********ANOTHER EXAMPLE*************");
+
+const board = [
+  ["R", "N", "B", "Q", "K", "B", "N", "R"],  // Row 0 (top)
+  ["P", "P", "P", "P", "P", "P", "P", "P"],  // Row 1
+  [" ", " ", " ", " ", " ", " ", " ", " "],   // Row 2 (empty)
+  [" ", " ", " ", " ", " ", " ", " ", " "],   // Row 3 (empty)
+  [" ", " ", " ", " ", " ", " ", " ", " "],   // Row 4 (empty)
+  [" ", " ", " ", " ", " ", " ", " ", " "],   // Row 5 (empty)
+  ["p", "p", "p", "p", "p", "p", "p", "p"],  // Row 6
+  ["r", "n", "b", "q", "k", "b", "n", "r"],  // Row 7 (bottom)
+];
+
+
+board[4][4] = board[6][4];  // Copy the piece from row 6, col 4 to row 4, col 4
+board[6][4] = " ";          // Make the old position empty
+console.log(board);
+
+
+
+console.log("********ANOTHER EXAMPLE*************");
+const values = [];
+for (let x = 0; x < 10; x++) {
+  values.push([2 ** x, 2 * x ** 2]);
+}
+console.table(values);
+
+
+
+
+
+console.log("********ANOTHER EXAMPLE*************");
+const arr100 = [1, 2, 3];
+arr100.forEach((item, index) => {
+  console.log(item);
+  if (index === 1) {
+    arr100.push(4); // Add 4 to the end
+   
+  }
+ 
+});
+// Only logs: 1, 2, 3 (the 4 is ignored)
+
