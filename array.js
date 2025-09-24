@@ -460,3 +460,47 @@ arr100.forEach((item, index) => {
 });
 // Only logs: 1, 2, 3 (the 4 is ignored)
 
+
+console.log("********ANOTHER EXAMPLE*************");
+
+
+
+const arr58 = ["a", "b", "c"];
+console.log("Before:", arr58); // ["a", "b", "c"]
+
+arr58.forEach((item, index) => {
+  console.log(`Visiting: ${item}`);
+  if (index === 1) {
+    arr58[0] = "CHANGED"; // This DOES change the array
+    console.log("Array after change:", arr58); // ["CHANGED", "b", "c"]
+    console.log("Current item is still:", item); // Still "b"
+  }
+});
+
+console.log("Final array:", arr58); // ["CHANGED", "b", "c"]
+
+
+console.log("********ANOTHER EXAMPLE*************");
+
+const arr60 = ["a", "b", "c"];
+arr60.forEach((item, index) => {
+  if (index === 0) {
+    arr60[2] = "FUTURE"; // Change something we haven't visited yet
+  }
+  console.log(`Visiting: ${item}`);
+});
+// Output: "Visiting: a", "Visiting: b", "Visiting: FUTURE"
+// It sees "FUTURE" because we changed it before visiting position 2
+console.log("********ANOTHER EXAMPLE*************");
+
+const arrtry = ["a", "b", "c"];
+arrtry.forEach((item, index) => {
+  console.log(`Visiting: ${item}`);
+  if (index === 1) {
+
+    console.log("items", arrtry); 
+    arrtry.push("NEW"); // This adds "NEW" to the array
+     console.log("notthisitems", arrtry[3]); 
+  }
+});
+console.log(arrtry); // Shows ["a", "b", "c", "NEW"] - the element IS there
