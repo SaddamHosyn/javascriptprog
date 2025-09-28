@@ -182,9 +182,71 @@ console.log([...mySet11]); // [1, 2, 3, 4] copy to array
 
 
 
-
+const mySet13 = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 const mySet14 = new Set([1, 2, 3, 4, 5]);
 
 // intersect can be simulated via
-const intersection = new Set([...mySet11].filter((x) => mySet14.has(x)));
-console.log("Intersection:" + [...intersection]); // [3,4]
+const intersection = new Set([...mySet13].filter((x) => mySet14.has(x)));
+console.log("Intersection:" + [...intersection]); // [1,2,3,4,5]
+
+
+// difference can be simulated via
+const difference = new Set([...mySet13].filter((x) => !mySet14.has(x)));
+console.log("Difference:" + [...difference]); // [6,7,8,9,10]
+
+
+console.log(":********************Functions**********************************:");
+
+
+
+// Then create some Sets to test with
+const bigSet = new Set([1, 2, 3, 4, 5, 6]);
+const smallSet = new Set([2, 3, 4]);
+const differentSet = new Set([7, 8, 9]);
+
+// Now call the function
+console.log(isSuperset(bigSet, smallSet)); // true - bigSet contains all elements of smallSet
+console.log(isSuperset(bigSet, differentSet)); // false - bigSet doesn't contain 7, 8, 9
+console.log(isSuperset(smallSet, bigSet)); // false - smallSet doesn't contain all elements of bigSet
+
+
+function isSuperset(set, subset) {
+  for (const elem of subset) {
+    if (!set.has(elem)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+console.log(":********************Set Relation Array**********************************:");
+
+
+
+const myArray = ["value1", "value2", "value3"];
+
+// Use the regular Set constructor to transform an Array into a Set
+const mySet105 = new Set(myArray);
+
+mySet105.has("value1"); // returns true
+console.log(mySet105.has("value1")); // returns true
+// below line show exactly converting Array to Set. Use the spread syntax to transform a set into an Array.
+console.log([...mySet105]); // Will show you exactly the same Array as myArray
+
+
+
+// Use Set to remove duplicate elements from an array
+const numbers10 = [2, 13, 4, 4, 2, 13, 13, 4, 4, 5, 5, 6, 6, 7, 5, 32, 13, 4, 5];
+
+console.log([...new Set(numbers10)]); // [2, 13, 4, 5, 6, 7, 32]
+
+console.log(":********************Set Relation with Strings**********************************:");
+// Case sensitive (set will contain "F" and "f")
+console.log(new Set("Firefox")); // Set(7) [ "F", "i", "r", "e", "f", "o", "x" ]
+
+// Duplicate omission ("f" occurs twice in the string but set will contain only one)
+console.log(new Set("firefox")); // Set(6) [ "f", "i", "r", "e", "o", "x" ]
+
+console.log(":********************Set Relation with DOM Elements**********************************:");
+
